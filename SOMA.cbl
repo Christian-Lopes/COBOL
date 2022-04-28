@@ -1,11 +1,11 @@
       ******************************************************************
       * Author: CHRISTIAN LOPES DE OLIVEIRA
-      * Date:28/04/2021
-      * Purpose: FAZER SOMA
+      * Date:28/04/2022
+      * Purpose: SOMA
       * Tectonics: cobc
       ******************************************************************
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. YOUR-PROGRAM-NAME.
+       PROGRAM-ID. PROGRAM-SOMA.
        DATA DIVISION.
        FILE SECTION.
        WORKING-STORAGE SECTION.
@@ -23,17 +23,20 @@
                PERFORM 002-IMPRIMIR-SOMA THRU 002-SAI.
                    STOP RUN.
            001-PROCESSAMENTO.
+      ************************** SOMA COM COMPUTE **********************
                COMPUTE RESULTADO = NUMERO + NUMERO-DOIS.
+      ************************** SOMA  USANDO GIVING *******************
                ADD NUMERO TO NUMERO-DOIS GIVING RESULTADO-DOIS.
+      ************************** SOMA USANDO SOMENTE ADD ***************
                ADD NUMERO TO NUMERO-DOIS.
            001-SAI.
                EXIT.
            002-IMPRIMIR-SOMA.
-               DISPLAY "RESULTADO COMPUTE 001: " NUMERO.
-               DISPLAY "RESULTADO ADD COM GINVING 002: " RESULTADO-DOIS.
-               DISPLAY "RESULTADO ADD SEM GINVING 003: " NUMERO-DOIS.
-               DISPLAY RESULTADO.
+               DISPLAY "RESULTADO 1: COM COMPUTE: " RESULTADO.
+               DISPLAY "RESULTADO 2: COM ADD E GINVING: "
+                   RESULTADO-DOIS.
+               DISPLAY "RESULTADO 3: COM ADD E SEM GINVING 3: "
+                   NUMERO-DOIS.
            002-SAI.
                EXIT.
-
-       END PROGRAM YOUR-PROGRAM-NAME.
+       END PROGRAM PROGRAM-SOMA.
